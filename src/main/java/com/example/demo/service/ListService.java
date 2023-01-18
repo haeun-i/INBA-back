@@ -160,41 +160,6 @@ public class ListService {
         return toDtoList(subjectList);
     }
 
-    public List<SubjectDto> core1List(){
-        List<Subject> subjectList = subjectRepository.findAllBySubjectStatus(SubjectStatus.핵심교양1);
-        return toDtoList(subjectList);
-    }
-
-    public List<SubjectDto> core2List(){
-        List<Subject> subjectList = subjectRepository.findAllBySubjectStatus(SubjectStatus.핵심교양2);
-        return toDtoList(subjectList);
-    }
-
-    public List<SubjectDto> core3List(){
-        List<Subject> subjectList = subjectRepository.findAllBySubjectStatus(SubjectStatus.핵심교양3);
-        return toDtoList(subjectList);
-    }
-
-    public List<SubjectDto> core4List(){
-        List<Subject> subjectList = subjectRepository.findAllBySubjectStatus(SubjectStatus.핵심교양4);
-        return toDtoList(subjectList);
-    }
-
-    public List<SubjectDto> core5List(){
-        List<Subject> subjectList = subjectRepository.findAllBySubjectStatus(SubjectStatus.핵심교양5);
-        return toDtoList(subjectList);
-    }
-
-    public List<SubjectDto> core6List(){
-        List<Subject> subjectList = subjectRepository.findAllBySubjectStatus(SubjectStatus.핵심교양6);
-        return toDtoList(subjectList);
-    }
-
-    public List<SubjectDto> creativeList(){
-        List<Subject> subjectList = subjectRepository.findAllBySubjectStatus(SubjectStatus.창의영역);
-        return toDtoList(subjectList);
-    }
-
     // 비정규화로 가져온 과목 리스트 parsing
     public List<Subject> parsing(String list){
         String[] ess_list_str = list.split("/");

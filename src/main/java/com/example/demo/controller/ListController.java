@@ -39,38 +39,5 @@ public class ListController {
         return ResponseEntity.ok(listService.requireMinorList());
     }
 
-    @GetMapping("/list/core1")
-    public ResponseEntity<List<SubjectDto>> core1List() {
-        return ResponseEntity.ok(listService.core1List());
-    }
 
-    @GetMapping("/list/core2")
-    public ResponseEntity<List<SubjectDto>> core2List() {
-        return ResponseEntity.ok(listService.core2List());
-    }
-
-    @GetMapping("/list/core3")
-    public ResponseEntity<List<SubjectDto>> core3List() {
-        return ResponseEntity.ok(listService.core3List());
-    }
-
-    @GetMapping("/list/core4")
-    public ResponseEntity<List<SubjectDto>> core4List() {
-        return ResponseEntity.ok(listService.core4List());
-    }
-
-    @GetMapping("/list/core5")
-    public ResponseEntity<List<SubjectDto>> core5List() {
-        return ResponseEntity.ok(listService.core5List());
-    }
-
-    @GetMapping("/list/core6")
-    public ResponseEntity<List<SubjectDto>> core6List() {
-        return ResponseEntity.ok(listService.core6List());
-    }
-
-    @GetMapping("/list/creative")
-    public ResponseEntity<List<SubjectDto>> creativeList() {
-        return ResponseEntity.ok(listService.creativeList());
-    }
 }
