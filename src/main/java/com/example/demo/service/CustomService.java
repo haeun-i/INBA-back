@@ -26,17 +26,22 @@ public class CustomService {
     private final TypeRepository typeRepository;
     private final StandardRepository standardRepository;
 
-    // 과목명, 학점 리스트 전달 받아서 커스텀하기
     @Transactional
-    public ScoreDto customComputer(List<CustomDto> customList){
+    public ScoreDto custom(List<CustomDto> customList){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByUserEmail(authentication.getName()).get();
 
-        List<UserSubject> customSaveList = customSaveComputer(user, customList);
+        List<UserSubject> customSaveList = new ArrayList<>();
+        if(user.getUserStatus() == UserStatus.SINGLE){
+            customSaveList = customSaveComputer(user, customList);
+        }else{
+            customSaveDual(user, customList);
+        }
         ScoreDto score = calculate(user);
         userSubjectRepository.deleteAllInBatch(customSaveList);
         return score;
     }
+
 
     public List<UserSubject> customSaveComputer(User user, List<CustomDto> customList){
 
@@ -82,18 +87,7 @@ public class CustomService {
     }
 
 
-    // 과목명, 학점 리스트 전달 받아서 커스텀하기
-    @Transactional
-    public ScoreDto customDual(List<CustomDto> customList){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = userRepository.findByUserEmail(authentication.getName()).get();
-        System.out.println(user);
 
-        List<UserSubject> customSaveList = customSaveDual(user, customList);
-        ScoreDto score = calculate(user);
-        userSubjectRepository.deleteAllInBatch(customSaveList);
-        return score;
-    }
 
     public List<UserSubject> customSaveDual(User user, List<CustomDto> customList){
 

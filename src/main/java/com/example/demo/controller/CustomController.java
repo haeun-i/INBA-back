@@ -22,13 +22,9 @@ public class CustomController {
 
     private final CustomService customService;
 
-    @PostMapping("/custom/single")
+    @PostMapping("/custom")
     public ResponseEntity<ScoreDto> customComputer(@RequestBody List<CustomDto> customDtos) {
-        return ResponseEntity.ok(customService.customComputer(customDtos));
+        return ResponseEntity.ok(customService.custom(customDtos));
     }
 
-    @PostMapping("/custom/dual")
-    public ResponseEntity<ScoreDto> customDual(@RequestBody List<CustomDto> customDtos) {
-        return ResponseEntity.ok(customService.customDual(customDtos));
-    }
 }
